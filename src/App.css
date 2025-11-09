@@ -1,0 +1,21 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@import url('https://fonts.googleapis.com/css2?family=Lexend&display=swap');
+:root{
+  --primary-color: #FF5A3C;
+  --color-text: #071C1F;
+}
+a.active{
+ color: #FF5A3C;
+ border-bottom: 2px solid #FF5A3C;
+}
+* {
+  font-family: "Lexend", sans-serif;
+}
+
+.my-button{
+  @apply text-[15px] text-white bg-[var(--primary-color)] text-[var(--color-text)]     hover:bg-amber-50 hover:text-black
+}
+.hero-button{
+    @apply btn-outline border-white mt-4 hover:bg-white hover:text-black transition duration-300
+}
