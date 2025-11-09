@@ -5,12 +5,12 @@
   --primary-color: #FF5A3C;
   --color-text: #071C1F;
 }
+* {
+  font-family: "Lexend", sans-serif;
+}
 a.active{
  color: #FF5A3C;
  border-bottom: 2px solid #FF5A3C;
-}
-* {
-  font-family: "Lexend", sans-serif;
 }
 
 .my-button{
@@ -18,4 +18,7 @@ a.active{
 }
 .hero-button{
     @apply btn-outline border-white mt-4 hover:bg-white hover:text-black transition duration-300
+}
+.navLInk{
+  @apply hover:text-[var(--primary-color)]
 }

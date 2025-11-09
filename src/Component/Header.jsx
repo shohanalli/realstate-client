@@ -7,9 +7,11 @@ import { Link, NavLink } from 'react-router';
 const Header = () => {
       const navLinks = (
         <>
-        <NavLink className={ 'hover:text-[var(--primary-color)]'} to={'/'}>Home</NavLink>
-        <NavLink className={ 'hover:text-[var(--primary-color)]'} to={'/service'}> Services</NavLink>
-        <NavLink className={ 'hover:text-[var(--primary-color)]'} to={'/service'}>My Profile</NavLink>
+        <NavLink className={ 'navLInk'} to={'/'}>Home</NavLink>
+        <NavLink className={ 'navLInk'} to={'/all-property'}>All Properties</NavLink>
+        <NavLink className={ 'navLInk'} to={'/add-property'}>Add Properties</NavLink>
+        <NavLink className={ 'navLInk'} to={'/my-property'}>My Properties</NavLink>
+        <NavLink className={ 'navLInk'} to={'/my-rating'}>My Ratings</NavLink>
         </>
       )
   
@@ -18,28 +20,31 @@ const Header = () => {
             <div className="navbar w-[97] lg:w-[95%] mx-auto">
   <div className="navbar-start">
     <div className="dropdown">
-      <div tabindex="0" role="button" className="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
-      </div>
-      <ul
-        tabindex="-1"
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+      <label tabIndex={0} className="btn btn-ghost lg:hidden">
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+    </svg>
+  </label>
+  <ul
+    tabIndex={0}
+    className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-white text-xl font-semibold space-y-5  rounded-box w-52"
+  >
             {navLinks}
       </ul>
     </div>
-    <div className='flex gap-2 items-center justify-center'>
-        <a href="" className='hidden md:block'><House size={50} color="#FF5A3C" /></a>
-         <a className="text-3xl font-extrabold text-[var(--color-text)]"> RENTER</a>
+    <div className='flex gap-2 items-center justify-center '>
+        <a href="./" className='hidden md:block'><House size={50} color="#FF5A3C" /></a>
+         <a href="./" className="text-3xl font-extrabold text-[var(--color-text)]"> RENTER</a>
          </div>
    
   </div>
   <div className="navbar-center hidden lg:flex">
-    <ul className=" flex gap-3 font-semibold text-[var(--color-text)]">
+    <ul className=" flex gap-5 font-semibold text-[15px] text-[var(--color-text)]">
 {navLinks}
     </ul>
   </div>
   <div className="navbar-end">
-      <Link className="btn  my-button">SingUp/LogIn</Link>
+      <Link to={'/login'} className="btn  my-button">SingUp/LogIn</Link>
   </div>
 </div>
         </div>
