@@ -12,13 +12,13 @@ const Footer = () => {
             <House size={50} color="#FF5A3C" />
             <h2 className="text-3xl font-extrabold text-white"> RENTER</h2>
           </div>
-          <p className="text-[15px] leading-6 mb-4 leading-loose">
+          <p className="text-base leading-6 mb-4 leading-loose">
             Find your dream home with RENTER — your trusted partner for buying,
             selling, and renting premium properties.
           </p>
-          <p className="text-sm flex gap-2"><Phone /> +880 1234-567890</p>
-          <p className="text-sm flex gap-2 mt-3"><Mail /> support@renter.com</p>
-          <div className="flex gap-4 mt-5">
+          <p className="text-base flex gap-2 mt-4 text-[15px]"><Phone /> +880 1234-567890</p>
+          <p className="text-base flex gap-2 mt-3 text-[15px]"><Mail /> support@renter.com</p>
+          <div className="flex gap-4 mt-8">
             <a href="#" className="hover:text-[#FF5A3C] transition">
               <Facebook size={20} />
             </a>
@@ -36,43 +36,43 @@ const Footer = () => {
 
 
         <div>
-          <h3 className="text-lg font-semibold text-white mb-4">Company</h3>
-          <ul className="space-y-2 text-sm">
-            <li><a href="#" className="hover:text-[#FF5A3C]">About Us</a></li>
-            <li><a href="#" className="hover:text-[#FF5A3C]">Careers</a></li>
-            <li><a href="#" className="hover:text-[#FF5A3C]">Blog</a></li>
-            <li><a href="#" className="hover:text-[#FF5A3C]">Press</a></li>
-            <li><a href="#" className="hover:text-[#FF5A3C]">Contact</a></li>
+          <h3 className="text-2xl font-semibold text-white mb-8">Company</h3>
+          <ul className="space-y-5 text-base">
+            <li><a href="#" className="footer-hover">About Us</a></li>
+            <li><a href="#" className="footer-hover">Careers</a></li>
+            <li><a href="#" className="footer-hover">Blog</a></li>
+            <li><a href="#" className="footer-hover">Press</a></li>
+            <li><a href="#" className="footer-hover">Contact</a></li>
           </ul>
         </div>
 
 
         <div>
-          <h3 className="text-lg font-semibold text-white mb-4">Services</h3>
-          <ul className="space-y-2 text-sm">
-            <li><a href="#" className="hover:text-[#FF5A3C]">Property Buying</a></li>
-            <li><a href="#" className="hover:text-[#FF5A3C]">Property Selling</a></li>
-            <li><a href="#" className="hover:text-[#FF5A3C]">Rent Management</a></li>
-            <li><a href="#" className="hover:text-[#FF5A3C]">Property Listing</a></li>
-            <li><a href="#" className="hover:text-[#FF5A3C]">Legal Assistance</a></li>
+          <h3 className="text-2xl font-semibold text-white mb-8">Services</h3>
+          <ul className="space-y-5 text-base">
+            <li><a href="#" className="footer-hover">Property Buying</a></li>
+            <li><a href="#" className="footer-hover">Property Selling</a></li>
+            <li><a href="#" className="footer-hover">Rent Management</a></li>
+            <li><a href="#" className="footer-hover">Property Listing</a></li>
+            <li><a href="#" className="footer-hover">Legal Assistance</a></li>
           </ul>
         </div>
 
         <div>
-          <h3 className="text-lg font-semibold text-white mb-4">Customer Care</h3>
-          <ul className="space-y-2 text-sm">
-            <li><a href="#" className="hover:text-[#FF5A3C]">Help Center</a></li>
-            <li><a href="#" className="hover:text-[#FF5A3C]">FAQs</a></li>
-            <li><a href="#" className="hover:text-[#FF5A3C]">Terms & Conditions</a></li>
-            <li><a href="#" className="hover:text-[#FF5A3C]">Privacy Policy</a></li>
-            <li><a href="#" className="hover:text-[#FF5A3C]">Report a Problem</a></li>
+          <h3 className="text-2xl font-semibold text-white mb-8">Customer Care</h3>
+          <ul className="space-y-5 text-base">
+            <li><a href="#" className="footer-hover">Help Center</a></li>
+            <li><a href="#" className="footer-hover">FAQs</a></li>
+            <li><a href="#" className="footer-hover">Terms & Conditions</a></li>
+            <li><a href="#" className="footer-hover">Privacy Policy</a></li>
+            <li><a href="#" className="footer-hover">Report a Problem</a></li>
           </ul>
         </div>
       </div>
 
 
       <div className="border-t border-gray-700 mt-10 pt-6 text-center text-sm text-gray-500">
-        © {new Date().getFullYear()} RENTER. All Rights Reserved.
+        © {new Date().getFullYear()} Design by shohan. All Rights Reserved.
       </div>
     </footer>
   );

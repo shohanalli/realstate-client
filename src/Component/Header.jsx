@@ -1,10 +1,16 @@
 
 
 import { House } from 'lucide-react';
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router';
 
 const Header = () => {
+  // const {user, setUser} = use(Authcontext)
+const [hover, setHover] = useState(false);
+
+
+
+
       const navLinks = (
         <>
         <NavLink className={ 'navLInk'} to={'/'}>Home</NavLink>
@@ -44,7 +50,12 @@ const Header = () => {
     </ul>
   </div>
   <div className="navbar-end">
-      <Link to={'/login'} className="btn  my-button">SingUp/LogIn</Link>
+    { 
+     (<Link to={'/login'} className="btn  my-button">SingUp/LogIn</Link>) 
+
+
+
+    }
   </div>
 </div>
         </div>
