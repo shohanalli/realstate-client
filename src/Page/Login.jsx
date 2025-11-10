@@ -10,14 +10,14 @@ const Login = () => {
         </div>
         <div className='md:flex items-center  gap-15'>
          <div className=" border border-white/30 shadow-xl rounded-2xl p-8">
-                <form  className="space-y-5 text-white">
+                <form  className="space-y-5 ">
               <div>
                 <label className="block text-base mb-1 text-black/50">Email</label>
                 <input
                   type="email"
                   name="email"            
                   placeholder="example@email.com"
-                  className="input input-bordered w-full bg-white/20 text-white placeholder-black/30 focus:outline-none focus:ring-2 focus:[#071C1F]"
+                  className="input input-bordered w-full bg-white/20 placeholder-black/30 focus:outline-none focus:ring-2 focus:[#071C1F]"
                 />
               </div>
               <div className="relative">
@@ -28,7 +28,7 @@ const Login = () => {
                   type={ "password"}
                   name="password"
                   placeholder="******"
-                  className="input input-bordered w-full bg-white/20 text-white placeholder-black/30 focus:outline-none focus:ring-2 focus:[#FF5A3C]"
+                  className="input input-bordered w-full bg-white/20 placeholder-black/30 focus:outline-none focus:ring-2 focus:[#FF5A3C]"
                 />
                        
               </div>

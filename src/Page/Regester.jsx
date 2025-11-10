@@ -1,7 +1,41 @@
-import React from 'react';
-import { Link } from 'react-router';
 
+import React, { useState } from 'react';
+import { Link } from 'react-router';
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../firebase/Firebase.config';
+import { toast } from 'react-toastify';
 const Regester = () => {
+
+const handelSubmit = (e) =>{
+    const [show , setShow] = useState(false)
+    e.preventDefault()
+    const name = e.target.name.value;
+    const photo = e.target.photo.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+// regex and set password
+ const regExp =/^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
+    if (!regExp.test(password)) {
+      toast.error("Password must have uppercase, lowercase & min 6 chars");
+      return;
+    }
+
+    createUserWithEmailAndPassword(auth, email, password)
+    .then(res => {
+        toast.success("register successfully")
+        console.log(res)
+    })
+    .catch(err => {
+        toast.error(err.message)
+    })
+}
+
+
+
+
+
+
     return (
     <div className=" bg-[#F2F6F7] py-15 flex flex-col items-center justify-center">
         <div className='py-5 space-y-6 mb-5'>
@@ -10,14 +44,14 @@ const Regester = () => {
         </div>
 
          <div className="max-w-11/12 md:w-6/12 border border-white/30 shadow-xl rounded-2xl p-8">
-                <form  className="space-y-5 text-white">
+                <form onSubmit={handelSubmit}  className="space-y-5">
               <div>
                 <label className="block text-base mb-1 text-black/50">Name</label>
                 <input
                   type="text"
                   name="name"
                   placeholder="Shohan Ali"
-                  className="input input-bordered w-full bg-white/20 text-white placeholder-black/30 focus:outline-none focus:ring-2 focus:[#071C1F]"
+                  className="input input-bordered w-full bg-white/20  placeholder-black/30 focus:outline-none focus:ring-2 focus:[#071C1F]"
                 />
               </div>
               <div>
@@ -26,7 +60,7 @@ const Regester = () => {
                   type="text"
                   name="photo"
                   placeholder="Your photo URL here"
-                  className="input input-bordered w-full bg-white/20 text-white placeholder-black/30 focus:outline-none focus:ring-2 focus:[#071C1F]"
+                  className="input input-bordered w-full bg-white/20 placeholder-black/30 focus:outline-none focus:ring-2 focus:[#071C1F]"
                 />
               </div>
 
@@ -36,7 +70,7 @@ const Regester = () => {
                   type="email"
                   name="email"            
                   placeholder="example@email.com"
-                  className="input input-bordered w-full bg-white/20 text-white placeholder-black/30 focus:outline-none focus:ring-2 focus:[#071C1F]"
+                  className="input input-bordered w-full bg-white/20  placeholder-black/30 focus:outline-none  focus:[#071C1F]"
                 />
               </div>
               <div className="relative">
@@ -47,7 +81,7 @@ const Regester = () => {
                   type={ "password"}
                   name="password"
                   placeholder="******"
-                  className="input input-bordered w-full bg-white/20 text-white placeholder-black/30 focus:outline-none focus:ring-2 focus:[#FF5A3C]"
+                  className="input input-bordered w-full bg-white/20  placeholder-black/30 focus:outline-none focus:[#FF5A3C]"
                 />
                        
               </div>
