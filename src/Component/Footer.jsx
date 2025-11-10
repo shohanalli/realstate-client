@@ -1,21 +1,24 @@
 
 import React from 'react';
-import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Facebook, House, Instagram, Linkedin, Mail, Phone, Twitter } from 'lucide-react';
 const Footer = () => {
 
   return (
-    <footer className="bg-[#171B2A] text-gray-300 py-12 px-6 md:px-12">
+    <footer className="bg-[#171B2A] text-gray-200 py-12 px-6 md:px-12">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
         <div>
-          <h2 className="text-3xl font-extrabold text-white mb-4">RENTER</h2>
-          <p className="text-sm leading-6 mb-4">
+          <div className='flex items-center gap-2 mb-4'>
+            <House size={50} color="#FF5A3C" />
+            <h2 className="text-3xl font-extrabold text-white"> RENTER</h2>
+          </div>
+          <p className="text-[15px] leading-6 mb-4 leading-loose">
             Find your dream home with RENTER — your trusted partner for buying,
             selling, and renting premium properties.
           </p>
-          <p className="text-sm">📞 +880 1234-567890</p>
-          <p className="text-sm mb-4">📧 support@renter.com</p>
-          <div className="flex gap-4 mt-3">
+          <p className="text-sm flex gap-2"><Phone /> +880 1234-567890</p>
+          <p className="text-sm flex gap-2 mt-3"><Mail /> support@renter.com</p>
+          <div className="flex gap-4 mt-5">
             <a href="#" className="hover:text-[#FF5A3C] transition">
               <Facebook size={20} />
             </a>
