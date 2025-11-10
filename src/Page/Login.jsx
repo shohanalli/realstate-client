@@ -1,7 +1,40 @@
-import React from 'react';
+
+import React, { use} from 'react';
 import { Link } from 'react-router';
+import { toast } from 'react-toastify';
+import { AuthContext } from '../Authorization/AuthContext';
 
 const Login = () => {
+
+    const {signInWithEmailAndPasswordFunc,  signInWithGoogleFun, user, setUser} = use(AuthContext)
+
+
+    const handelSignin = (e) =>{
+        e.preventDefault()
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        signInWithEmailAndPasswordFunc( email, password)
+        .then(res=>{ 
+            setUser(res.user)
+            toast.success("login successfully")
+        })
+        .catch(errr =>{
+            toast.error(errr.message)
+        })
+    }
+
+const handelContinueGoogle = () =>{
+ signInWithGoogleFun()
+        .then(res=>{
+            setUser(res.user)
+            toast.success("login successfully")
+            console.log(res.user)
+        })
+        .catch(errr =>{
+            toast.error(errr.message)
+        })
+}
+
   return (
     <div className=" bg-[#F2F6F7] py-15 flex flex-col items-center justify-center">
         <div className='py-5 space-y-6 mb-5'>
@@ -10,7 +43,7 @@ const Login = () => {
         </div>
         <div className='md:flex items-center  gap-15'>
          <div className=" border border-white/30 shadow-xl rounded-2xl p-8">
-                <form  className="space-y-5 ">
+                <form onSubmit={handelSignin} className="space-y-5 ">
               <div>
                 <label className="block text-base mb-1 text-black/50">Email</label>
                 <input
@@ -49,7 +82,7 @@ const Login = () => {
                 <div className="h-px w-16 bg-white/30"></div>
               </div>
               <button 
-                          
+                    onClick={handelContinueGoogle}      
                 type="button"
                 className="flex items-center justify-center gap-3 bg-white text-gray-800 px-5 py-2 rounded-lg w-full font-semibold hover:bg-gray-100 transition-colors cursor-pointer"
               >

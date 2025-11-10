@@ -1,13 +1,21 @@
-
-
 import { House } from 'lucide-react';
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
 import { Link, NavLink } from 'react-router';
+import { AuthContext } from '../Authorization/AuthContext';
+
 
 const Header = () => {
-  // const {user, setUser} = use(Authcontext)
-const [hover, setHover] = useState(false);
+const {user, setUser, signoutUserFun} = use(AuthContext)
+  const [hover, setHover] = useState(false);
 
+ const handleSignOut = () =>{
+    signoutUserFun()
+        .then(() => {
+          setUser(null)
+        console.log("User signed out");
+      })
+      .catch((err) => console.log(err));
+ }
 
 
 
@@ -50,12 +58,40 @@ const [hover, setHover] = useState(false);
     </ul>
   </div>
   <div className="navbar-end">
-    { 
-     (<Link to={'/login'} className="btn  my-button">SingUp/LogIn</Link>) 
+    { !user ?(<Link to={'/login'} className="btn  my-button">SingUp/LogIn</Link>) :
+     
+(
+ <div
+            className="relative"
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
+          >
+            <img
+              src={user?.photoURL || "https://i.ibb.co.com/spx4GtRN/login.jpg"}
+              alt="User"
+              className="w-12 h-12 rounded-full border-2 border-[var(--primary-color)] cursor-pointer"
+            />
 
-
-
+            {hover && (
+              <div className="absolute right-0 w-auto bg-white shadow-lg rounded-xl p-3 text-gray-800 z-10">
+                <p className="text-center font-medium">
+                  {user?.displayName || "User"}
+                </p>
+                <p className="text-center  font-medium ">
+                  {user?.email || "User"}
+                </p>
+                <button
+                  onClick={handleSignOut}
+                  className="btn btn-sm mt-2 w-full bg-[var(--primary-color)] text-white"
+                >
+                  Sign Out
+                </button>
+              </div>
+            )}
+          </div>
+  )
     }
+    
   </div>
 </div>
         </div>
