@@ -2,10 +2,12 @@ import { House } from 'lucide-react';
 import React, { use, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../Authorization/AuthContext';
+import { Circles } from 'react-loader-spinner';
 
 
 const Header = () => {
-const {user, setUser, signoutUserFun} = use(AuthContext)
+const {user, setUser, signoutUserFun, loading} = use(AuthContext);
+console.log(user)
   const [hover, setHover] = useState(false);
 
  const handleSignOut = () =>{
@@ -23,9 +25,9 @@ const {user, setUser, signoutUserFun} = use(AuthContext)
         <>
         <NavLink className={ 'navLInk'} to={'/'}>Home</NavLink>
         <NavLink className={ 'navLInk'} to={'/all-property'}>All Properties</NavLink>
-        <NavLink className={ 'navLInk'} to={'/add-property'}>Add Properties</NavLink>
-        <NavLink className={ 'navLInk'} to={'/my-property'}>My Properties</NavLink>
-        <NavLink className={ 'navLInk'} to={'/my-rating'}>My Ratings</NavLink>
+       {user && (<NavLink className={ 'navLInk'} to={'/add-property'}>Add Properties</NavLink>)} 
+       {user && (<NavLink className={ 'navLInk'} to={'/my-property'}>My Properties</NavLink>)}
+        {user && (<NavLink className={ 'navLInk'} to={'/my-rating'}>My Ratings</NavLink>)}
         </>
       )
   
@@ -58,8 +60,7 @@ const {user, setUser, signoutUserFun} = use(AuthContext)
     </ul>
   </div>
   <div className="navbar-end">
-    { !user ?(<Link to={'/login'} className="btn  my-button">SingUp/LogIn</Link>) :
-     
+    {loading ? (<Circles height="50" width="50" color="#FF5A3C"/>) : !user ?(<Link to={'/login'} className="btn  my-button">SingUp/LogIn</Link>) :  
 (
  <div
             className="relative"
@@ -67,7 +68,7 @@ const {user, setUser, signoutUserFun} = use(AuthContext)
             onMouseLeave={() => setHover(false)}
           >
             <img
-              src={user?.photoURL || "https://i.ibb.co.com/spx4GtRN/login.jpg"}
+              src={user?.photoURL || `https://i.ibb.co.com/spx4GtRN/login.jpg`}
               alt="User"
               className="w-12 h-12 rounded-full border-2 border-[var(--primary-color)] cursor-pointer"
             />

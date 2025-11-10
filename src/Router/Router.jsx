@@ -8,6 +8,7 @@ import MyProperty from '../Page/MyProperty';
 import MyRatings from '../Page/MyRatings';
 import Login from '../Page/Login';
 import Regester from '../Page/Regester';
+import Privetrouter from '../Privetrouter/Privetrouter';
 
 
 export const router = createBrowserRouter([
@@ -21,8 +22,9 @@ export const router = createBrowserRouter([
       },
       {
         path: '/add-property',
-        element: <AddProperties></AddProperties>
-        
+        element: <Privetrouter>
+         <AddProperties></AddProperties>
+        </Privetrouter>
       },
       {
         path: '/all-property',
@@ -31,13 +33,15 @@ export const router = createBrowserRouter([
       },
       {
         path: '/my-property',
-        element: <MyProperty></MyProperty>
-        
+        element: <Privetrouter>
+         <MyProperty></MyProperty>
+        </Privetrouter>
       },
       {
         path: '/my-rating',
-        element : <MyRatings></MyRatings>
-        
+        element : <Privetrouter>
+         <MyRatings></MyRatings>
+        </Privetrouter>
       },
       {
         path:'/login',

@@ -1,12 +1,27 @@
-import React, { useContext, useState } from "react";
-import { Link } from "react-router";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router";
 
 import { toast } from "react-toastify";
 import { Eye, EyeOff } from "lucide-react";
 import { AuthContext } from "../Authorization/AuthContext";
+import { auth } from "../firebase/Firebase.config";
 const Regester = () => {
   const [show, setShow] = useState(false);
-  const {createUserWithEmailPasswordFunc, signInWithGoogleFun,  updateProfileFunc} =useContext(AuthContext)
+  const {
+    createUserWithEmailPasswordFunc,
+    user,
+    signInWithGoogleFun,
+    setLoading,
+    updateProfileFunc,
+  } = useContext(AuthContext);
+  const location = useLocation();
+  const form = location.state || "/";
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (user) {
+      navigate(form);
+    }
+  }, [user, navigate, form]);
   const handelSubmit = (e) => {
     e.preventDefault();
     const displayName = e.target.name?.value;
@@ -21,40 +36,38 @@ const Regester = () => {
       return;
     }
 
-
-createUserWithEmailPasswordFunc( email, password)
+    createUserWithEmailPasswordFunc(email, password)
       .then((res) => {
         //update profile
-
-       updateProfileFunc( displayName, photoURL)
+        updateProfileFunc(displayName, photoURL)
           .then(() => {
+            setLoading(false);
             toast.success("Successfully create account");
+            navigate(form);
           })
-          .catch((err) => toast.error(err.message, "1"));
-           //update profile
+          .catch((err) => toast.error(err.message));
+        //update profile
       })
       .catch((err) => {
         if (err.code == "auth/email-already-in-use") {
           toast.error("User already exit");
         } else {
-          toast.error(err.message, "2");
+          toast.error(err.message);
         }
-      }); 
+      });
   };
 
-const handelContinueGoogle = () =>{
- signInWithGoogleFun()
-        .then(res=>{
-            toast.success("login successfully")
-            console.log(res.user)
-        })
-        .catch(errr =>{
-            toast.error(errr.message, "3")
-        })
-}
-
-
-
+  const handelContinueGoogle = () => {
+    signInWithGoogleFun()
+      .then((res) => {
+        setLoading(false);
+        toast.success("login successfully");
+        navigate(form);
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
+  };
 
   return (
     <div className=" bg-[#F2F6F7] py-15 flex flex-col items-center justify-center">
@@ -125,7 +138,7 @@ const handelContinueGoogle = () =>{
             <div className="h-px w-16 bg-white/30"></div>
           </div>
           <button
-          onClick={handelContinueGoogle}
+            onClick={handelContinueGoogle}
             type="button"
             className="flex items-center justify-center gap-3 bg-white text-gray-800 px-5 py-2 rounded-lg w-full font-semibold hover:bg-gray-100 transition-colors cursor-pointer"
           >
