@@ -14,7 +14,7 @@ import { Pagination, Autoplay, Navigation  } from 'swiper/modules';
   slidesPerView={1}              
   loop={true}               
   autoplay={{
-    delay: 4000,               
+    delay: 3000,               
     disableOnInteraction: false,  
     pauseOnMouseEnter: true,     
   }}
