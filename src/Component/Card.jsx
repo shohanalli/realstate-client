@@ -1,0 +1,43 @@
+import { MapPin } from 'lucide-react';
+import React from 'react';
+
+const Card = () => {
+    return (
+        <div>
+     <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-800 relative cursor-pointer">
+<div className="relative h-60 w-full overflow-hidden rounded-lg">
+  <img 
+    src="https://i.ibb.co/Ps29V996/card1.webp" 
+    alt="Property" 
+    className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+  />
+  <div className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-80 transition-opacity duration-500"></div>
+</div>
+      <div className='px-3 py-5'>
+     {/* category */}
+      <div className='absolute top-3 left-2'>
+        <button className='bg-[var(--primary-color)]/80 text-white py-1 px-5 rounded-2xl text-base font-semibold'>Category</button>
+      </div>
+      {/* property name */}
+      <h2 className='text-[var(--color-text)]/90 text-[18px] lg:text-xl font-semibold pb-4 '>Elegant studio flat</h2>
+      {/* location */}
+      <div className=' flex items-center gap-1 text-black/50'>
+        <MapPin size={20} />
+      <p className='text-sm font-bold '>Ingraham St, Brooklyn, NY 11237</p>
+      </div>
+      {/* price */}
+      <div className="  flex justify-between py-5 items-center">
+        <h2 className="text-2xl font-semibold text-[var(--primary-color)]/80">$25,000</h2>
+        <button className="cursor-pointer text-[var(--primary-color)]/80 rounded-lg border font-semibold text-sm py-2 px-3 hover:bg-[var(--primary-color)]/90 hover:text-white transition duration-800">
+          View Details
+        </button>
+      </div>
+      <h3 className='text-sm font-semibold text-[var(--color-text)]/60'>Posted by </h3>
+      </div>
+ 
+    </div>
+        </div>
+    );
+};
+
+export default Card;
