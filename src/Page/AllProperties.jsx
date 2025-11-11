@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import AllpropertyCard from '../Component/AllpropertyCard';
-import { useLoaderData } from 'react-router';
 
 const AllProperties = () => {
-    const products = useLoaderData()
+    const [products, setProducts] = useState([]);
+
+useEffect(() => {
+  fetch('http://localhost:3000/products')
+    .then(res => res.json())
+    .then(data => setProducts(data))
+}, []);
     return (
         <div>
     <div className="container mx-auto px-4 py-15">

@@ -1,15 +1,23 @@
 import { Mail } from 'lucide-react';
-import React, { use } from 'react';
-import { useLoaderData } from 'react-router';
+import { use, useEffect, useState } from 'react';
+import {  useParams } from 'react-router';
 import { AuthContext } from '../Authorization/AuthContext';
 
 const PropertyDetails = () => {
-    const {user} = use(AuthContext)
-     console.log(user)
-    const products = useLoaderData()
-    const product = products.result
-   
-    const {thumbnail, shortDescription, propertyName, price, postedBy, mediumDescription, longDescription, location, category} = product
+    const { loading} = use(AuthContext);
+const { id } = useParams();
+console.log(id)
+  const [product, setProduct] = useState(null);
+  useEffect(() => {
+    fetch(`http://localhost:3000/products/${id}`)
+      .then(res => res.json())
+      .then(data => setProduct(data.result))
+      .catch(err => console.error(err));
+  }, [id]);
+
+  if (!product) return loading;
+
+    const {thumbnail, shortDescription, propertyName, price, postedBy, mediumDescription, longDescription, location, category, manIng, email} = product
     return (
         <>
         <div className='py-15 w-11/12 md:max-w-9/12 mx-auto'>
@@ -23,7 +31,7 @@ const PropertyDetails = () => {
                 </div>
             </div>
             {/* image */}
-            <div className='py-10 w-10/12 mx-auto md:w-9/12'>
+            <div className='pt-8 w-10/12 mx-auto md:w-9/12'>
                  <img
     className="w-full h-auto object-cover rounded-lg"
     src={thumbnail}
@@ -44,12 +52,12 @@ const PropertyDetails = () => {
     </div>
 
     <div className='md:w-1/3  border bg-white shadow-md border border-black/30 rounded-md py-10  flex md:flex-col gap-10 justify-center items-center'>
-        <img className='h-30 w-30 rounded-full' src={user.photoURL} alt="" />
+        <img className='h-30 w-30 rounded-full' src={manIng} alt="" />
         <div>
          <h2 className='text-2xl md:text-xl text-center lg:text-2xl font-bold'>{postedBy}</h2>
             <span className='flex items-center gap-1'>
                 <Mail size={16} />
-             <p className='text-md md:text-sm lg:text-md font-normal'>{user.email}</p>
+             <p className='text-md md:text-sm lg:text-md font-normal'>{email}</p>
             </span>
         </div>
     </div>

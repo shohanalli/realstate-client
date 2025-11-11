@@ -1,13 +1,16 @@
 import { MapPin } from 'lucide-react';
 import React from 'react';
+import { Link } from 'react-router';
 
-const Card = () => {
+const Card = ({product}) => {
+  console.log(product)
+  const {_id, propertyName, category, location, price, shortDescription, thumbnail} = product
     return (
         <div>
-     <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-800 relative cursor-pointer">
+     <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-800 relative cursor-pointer w-full sm:w-[300px] md:w-[350px] lg:w-[400px] h-[480px]">
 <div className="relative h-60 w-full overflow-hidden rounded-lg">
   <img 
-    src="https://i.ibb.co/Ps29V996/card1.webp" 
+    src={thumbnail} 
     alt="Property" 
     className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
   />
@@ -15,24 +18,26 @@ const Card = () => {
 </div>
       <div className='px-3 py-5'>
      {/* category */}
-      <div className='absolute top-1 left-1'>
-        <button className='bg-[var(--primary-color)]/90 text-white py-1 px-4 rounded-2xl text-sm font-semibold'>Category</button>
+      <div className='absolute top-3 left-3'>
+        <button className='bg-[var(--primary-color)]/90 text-white py-1 px-4 rounded-2xl text-sm font-semibold'>{category}</button>
       </div>
       {/* property name */}
-      <h2 className='text-[var(--color-text)]/90 text-[18px] lg:text-xl font-semibold pb-4 '>Elegant studio flat</h2>
+      <h2 className='text-[var(--color-text)]/90 text-[18px] lg:text-xl font-semibold '>{propertyName}</h2>
+      {/* shortDescription */}
+      <p className='text-sm font-normal text-[var(--color-text)]/60 py-3'>{shortDescription}</p>
       {/* location */}
       <div className=' flex items-center gap-1 text-black/50'>
         <MapPin size={20} />
-      <p className='text-sm font-bold '>Ingraham St, Brooklyn, NY 11237</p>
+      <p className='text-sm font-bold '>{location}</p>
       </div>
       {/* price */}
       <div className="  flex justify-between py-5 items-center">
-        <h2 className="text-2xl font-semibold text-[var(--primary-color)]/80">$25,000</h2>
-        <button className="cursor-pointer text-[var(--primary-color)]/80 rounded-lg border font-semibold text-sm py-2 px-3 hover:bg-[var(--primary-color)]/90 hover:text-white transition duration-800">
+        <h2 className="text-2xl font-semibold text-[var(--primary-color)]/80">{price}</h2>
+        <Link to={`/details/${_id}`} className="cursor-pointer text-[var(--primary-color)]/80 rounded-lg border font-semibold text-sm py-2 px-3 hover:bg-[var(--primary-color)]/90 hover:text-white transition duration-800">
           View Details
-        </button>
+        </Link>
       </div>
-      <h3 className='text-sm font-semibold text-[var(--color-text)]/60'>Posted by </h3>
+      
       </div>
  
     </div>

@@ -2,11 +2,11 @@ import React from 'react';
 import { MapPin } from 'lucide-react';
 import { Link } from 'react-router';
 const AllpropertyCard = ({product}) => {
-console.log(product);
+  console.log(product)
 const {_id, postedBy, location, category, price, propertyName, thumbnail } = product    
 return (
         <div>
- <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-800 relative cursor-pointer">
+ <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-800 relative cursor-pointer w-full sm:w-[300px] md:w-[350px] lg:w-[400px] h-[480px]">
 <div className="relative h-60 w-full overflow-hidden rounded-lg">
   <img 
     src={thumbnail} 

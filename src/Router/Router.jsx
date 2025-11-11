@@ -19,7 +19,8 @@ export const router = createBrowserRouter([
     children : [
       {
         index: true,
-        element : <Home></Home>
+        element : <Home></Home>,
+        
       },
       {
         path: '/add-property',
@@ -29,8 +30,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/all-property',
-        element: <AllProperties></AllProperties>,
-        loader: () => fetch ('http://localhost:3000/products')
+        element: <AllProperties></AllProperties>
         
       },
       {
@@ -57,8 +57,7 @@ export const router = createBrowserRouter([
         path: '/details/:id',
         element: <Privetrouter>
                    <PropertyDetails></PropertyDetails>
-        </Privetrouter>,
-        loader : ({params})=> fetch (`http://localhost:3000/products/${params.id}`)
+        </Privetrouter>
 
       },
       {
