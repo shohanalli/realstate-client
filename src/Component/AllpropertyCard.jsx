@@ -1,5 +1,6 @@
 import React from 'react';
 import { MapPin } from 'lucide-react';
+import { Link } from 'react-router';
 const AllpropertyCard = ({product}) => {
 console.log(product);
 const {_id, postedBy, location, category, price, propertyName, thumbnail } = product    
@@ -8,7 +9,7 @@ return (
  <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-800 relative cursor-pointer">
 <div className="relative h-60 w-full overflow-hidden rounded-lg">
   <img 
-    src="https://i.ibb.co/Ps29V996/card1.webp" 
+    src={thumbnail} 
     alt="Property" 
     className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
   />
@@ -30,9 +31,9 @@ location}</p>
       {/* price */}
       <div className="  flex justify-between py-5 items-center">
         <h2 className="text-2xl font-semibold text-[var(--primary-color)]/80">{price}</h2>
-        <button className="cursor-pointer text-[var(--primary-color)]/80 rounded-lg border font-semibold text-sm py-2 px-3 hover:bg-[var(--primary-color)]/90 hover:text-white transition duration-800">
+        <Link to={'/details'} className="cursor-pointer text-[var(--primary-color)]/80 rounded-lg border font-semibold text-sm py-2 px-3 hover:bg-[var(--primary-color)]/90 hover:text-white transition duration-800">
           View Details
-        </button>
+        </Link>
       </div>
       <h3 className='text-sm font-semibold text-[var(--color-text)]/60'>Posted by, {
 postedBy} </h3>

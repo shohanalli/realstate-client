@@ -9,6 +9,7 @@ import MyRatings from '../Page/MyRatings';
 import Login from '../Page/Login';
 import Regester from '../Page/Regester';
 import Privetrouter from '../Privetrouter/Privetrouter';
+import PropertyDetails from '../Page/PropertyDetails';
 
 
 export const router = createBrowserRouter([
@@ -51,6 +52,10 @@ export const router = createBrowserRouter([
       {
         path: '/regestar',
         element: <Regester></Regester>
+      },
+      {
+        path: '/details',
+        element: <PropertyDetails></PropertyDetails>
       }
 
 
