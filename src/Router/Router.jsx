@@ -54,8 +54,15 @@ export const router = createBrowserRouter([
         element: <Regester></Regester>
       },
       {
-        path: '/details',
-        element: <PropertyDetails></PropertyDetails>
+        path: '/details/:id',
+        element: <Privetrouter>
+                   <PropertyDetails></PropertyDetails>
+        </Privetrouter>,
+        loader : ({params})=> fetch (`http://localhost:3000/products/${params.id}`)
+
+      },
+      {
+        
       }
 
 

@@ -31,7 +31,7 @@ location}</p>
       {/* price */}
       <div className="  flex justify-between py-5 items-center">
         <h2 className="text-2xl font-semibold text-[var(--primary-color)]/80">{price}</h2>
-        <Link to={'/details'} className="cursor-pointer text-[var(--primary-color)]/80 rounded-lg border font-semibold text-sm py-2 px-3 hover:bg-[var(--primary-color)]/90 hover:text-white transition duration-800">
+        <Link to={`/details/${_id}`} className="cursor-pointer text-[var(--primary-color)]/80 rounded-lg border font-semibold text-sm py-2 px-3 hover:bg-[var(--primary-color)]/90 hover:text-white transition duration-800">
           View Details
         </Link>
       </div>

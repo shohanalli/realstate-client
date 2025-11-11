@@ -1,5 +1,6 @@
 import React, { use } from 'react';
 import { AuthContext } from '../Authorization/AuthContext';
+import { toast } from 'react-toastify';
 
 const AddProperties = () => {
     const {user} = use(AuthContext)
@@ -15,8 +16,25 @@ const AddProperties = () => {
             postedBy : user?.displayName,
             thumbnail : e.target.thumbnail.value,
             email : user?.email,
+            createdAt : new Date()
         }
-        console.log(formData);
+
+        fetch('http://localhost:3000/my-products',{
+            method: 'POST',
+            headers : {
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(res => res.json())
+        .then(data => {
+            toast.success("Add product mongodb successfully")
+            console.log(data)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+
 
     }
 
