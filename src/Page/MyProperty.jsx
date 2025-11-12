@@ -1,7 +1,8 @@
 import { CalendarDays, MapPin } from "lucide-react";
 import React, { use, useEffect, useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Authorization/AuthContext";
+import Swal from "sweetalert2";
 
 const MyProperty = () => {
   const { user } = use(AuthContext);
@@ -17,7 +18,45 @@ const MyProperty = () => {
         setloading(false);
       });
   }, []);
-  console.log(products);
+
+    // delete product
+const handelDelete =(id)=>{
+    Swal.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#FF5A3C",
+  cancelButtonColor: "#071C1F",
+  confirmButtonText: "Yes, delete it!"
+}).then((result) => {
+  if (result.isConfirmed) {
+        fetch(`http://localhost:3000/products/${id}`,{
+            method: 'DELETE',
+            headers : {
+                'content-type' : 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+                setProducts(products.filter((product) => product._id !== id));
+            console.log(data)
+    Swal.fire({
+      title: "Deleted!",
+      text: "Your file has been deleted.",
+      icon: "success"
+    });
+
+        })
+        .catch(err => {
+            console.log(err)
+        })
+
+
+  }
+});
+}
+
 
   if (loading) return <p>loading.....</p>;
 
@@ -76,7 +115,7 @@ const MyProperty = () => {
                     Update
                   </Link>
                   <Link
-                    to={``}
+                    onClick={() => handelDelete(product._id)}
                     className="mr-2 cursor-pointer text-[var(--primary-color)]/80 rounded-lg border font-semibold text-sm py-2 px-3 hover:bg-[var(--primary-color)]/90 hover:text-white transition duration-800"
                   >
                     Delete

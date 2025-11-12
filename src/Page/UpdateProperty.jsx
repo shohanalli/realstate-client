@@ -17,7 +17,6 @@ const { id } = useParams();
 //   update product 
     const handelSubmit = (e) =>{
         e.preventDefault()
-       
         const formData = {
             price : e.target.price.value,
             location : e.target.location.value,
@@ -42,6 +41,7 @@ const { id } = useParams();
             console.log(err)
         })
     }
+
 
   if (!product) return <p>loading....</p>;
     return (
