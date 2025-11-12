@@ -4,9 +4,8 @@ import {  useParams } from 'react-router';
 import { AuthContext } from '../Authorization/AuthContext';
 
 const PropertyDetails = () => {
-    const {user, loading} = use(AuthContext);
+ const {user} = use(AuthContext);
 const { id } = useParams();
-console.log(id)
   const [product, setProduct] = useState(null);
   useEffect(() => {
     fetch(`http://localhost:3000/products/${id}`)
@@ -15,7 +14,7 @@ console.log(id)
       .catch(err => console.error(err));
   }, [id]);
 
-  if (!product) return loading;
+  if (!product) return <p>loading....</p>;
 
     const {thumbnail, shortDescription, propertyName, price, postedBy, mediumDescription, longDescription, location, category, manIng, email} = product
     return (

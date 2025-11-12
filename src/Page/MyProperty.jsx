@@ -37,7 +37,7 @@ const MyProperty = () => {
               <div className="relative flex-1">
                 <img
                   className="h-full w-full rounded-sm object-cover transition-transform duration-500 hover:scale-105"
-                  src="https://i.ibb.co.com/qYQcB04r/Screenshot-13.png"
+                  src={product.thumbnail}
                   alt=""
                 />
                 <div className="absolute top-1 left-1">
@@ -70,10 +70,9 @@ const MyProperty = () => {
                 {/* button */}
                 <div className="flex justify-between my-3">
                   <Link
-                    
+                    to={`/update-property/${product._id}`}
                     className="cursor-pointer text-[var(--primary-color)]/80 rounded-lg border font-semibold text-sm py-2 px-3 hover:bg-[var(--primary-color)]/90 hover:text-white transition duration-800"
                   >
-                    {" "}
                     Update
                   </Link>
                   <Link
@@ -86,9 +85,7 @@ const MyProperty = () => {
                 <div>
                   <Link
                     to={`/details/${product._id}`}
-                    className="block w-10/12 mx-auto text-center cursor-pointer text-[var(--primary-color)]/80 rounded-lg border font-semibold text-sm py-2 px-3 hover:bg-[var(--primary-color)]/90 hover:text-white transition duration-800"
-                  >
-                    {" "}
+                    className="block w-10/12 mx-auto text-center cursor-pointer text-[var(--primary-color)]/80 rounded-lg border font-semibold text-sm py-2 px-3 hover:bg-[var(--primary-color)]/90 hover:text-white transition duration-800">
                     View Details
                   </Link>
                 </div>

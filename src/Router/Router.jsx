@@ -10,6 +10,7 @@ import Login from '../Page/Login';
 import Regester from '../Page/Regester';
 import Privetrouter from '../Privetrouter/Privetrouter';
 import PropertyDetails from '../Page/PropertyDetails';
+import UpdateProperty from '../Page/UpdateProperty';
 
 
 export const router = createBrowserRouter([
@@ -26,6 +27,12 @@ export const router = createBrowserRouter([
         path: '/add-property',
         element: <Privetrouter>
          <AddProperties></AddProperties>
+        </Privetrouter>
+      },
+      {
+        path: '/update-property/:id',
+        element: <Privetrouter>
+          <UpdateProperty></UpdateProperty>
         </Privetrouter>
       },
       {
