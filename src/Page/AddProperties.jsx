@@ -19,7 +19,7 @@ const AddProperties = () => {
             createdAt : new Date()
         }
 
-        fetch('http://localhost:3000/my-products',{
+        fetch('http://localhost:3000/products',{
             method: 'POST',
             headers : {
                 'content-type' : 'application/json'

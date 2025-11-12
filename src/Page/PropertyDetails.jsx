@@ -4,7 +4,7 @@ import {  useParams } from 'react-router';
 import { AuthContext } from '../Authorization/AuthContext';
 
 const PropertyDetails = () => {
-    const { loading} = use(AuthContext);
+    const {user, loading} = use(AuthContext);
 const { id } = useParams();
 console.log(id)
   const [product, setProduct] = useState(null);
@@ -27,7 +27,7 @@ console.log(id)
                     <p className='text-sm font-bold text-black/40'>{location}</p>
                 </div>
                 <div>
-                    <p className='text-[var(--primary-color)]/80 font-bold text-3xl'>{price}</p>
+                    <p className='text-[var(--primary-color)]/80 font-bold text-3xl'>${price}</p>
                 </div>
             </div>
             {/* image */}
@@ -52,7 +52,7 @@ console.log(id)
     </div>
 
     <div className='md:w-1/3  border bg-white shadow-md border border-black/30 rounded-md py-10  flex md:flex-col gap-10 justify-center items-center'>
-        <img className='h-30 w-30 rounded-full' src={manIng} alt="" />
+        <img className='h-30 w-30 rounded-full' src={manIng || user.photoURL} alt="" />
         <div>
          <h2 className='text-2xl md:text-xl text-center lg:text-2xl font-bold'>{postedBy}</h2>
             <span className='flex items-center gap-1'>
