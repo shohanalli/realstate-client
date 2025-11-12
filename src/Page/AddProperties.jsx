@@ -115,7 +115,7 @@ const AddProperties = () => {
           type="number"
           name="price"
           placeholder="Price"
-          required
+        
           className="input w-full rounded-xl focus:border-0 focus:outline-gray-200"
         />
 

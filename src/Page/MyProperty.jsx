@@ -1,6 +1,6 @@
 import { CalendarDays, MapPin } from "lucide-react";
 import React, { use, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router";
 import { AuthContext } from "../Authorization/AuthContext";
 import Swal from "sweetalert2";
 
