@@ -7,7 +7,8 @@ import { Rating } from '@smastrom/react-rating';
 const ClientSay = () => {
     return (
     <>
-    <div className='text-center py-10'>
+<div className='container mx-auto'>
+      <div className='text-center py-10'>
         <h1 className='text-2xl lg:text-4xl font-semibold text-[var(--color-text)]'>What Our Clients Say?</h1>
         <p className='text-base font-bold text-black/40'>Here’s just a few reasons why homeowners are choosing Realty to sell their property.
 </p>
@@ -31,7 +32,7 @@ const ClientSay = () => {
 
 <SwiperSlide>
   <div
-    className="mx-3 my-10 relative overflow-hidden border border-black/30 rounded-2xl shadow-xl bg-cover bg-center flex flex-col items-center justify-center p-5"
+    className="mx-3 my-10 relative overflow-hidden border border-black/30 rounded-2xl shadow-xl bg-white bg-cover bg-center flex flex-col items-center justify-center p-5"
   >
     <div>
         <img className="rounded-full border-2 border-[#FF5A3C] h-20 w-20" src={'https://i.ibb.co.com/WND6NWhc/Screenshot-6.png'} alt="" />
@@ -104,6 +105,7 @@ const ClientSay = () => {
 
 
       </Swiper>
+</div>
     </>
     );
 };

@@ -12,12 +12,10 @@ const MakepropertySec = () => {
     >
       <div className="absolute inset-0 bg-black/30"></div>
       <div className="relative z-10 container mx-auto px-6 py-20 text-white">
-        <h2 className="text-3xl md:text-5xl font-bold text-center mb-5">Market Your Property With
-Realty
+        <h2 className="text-3xl md:text-5xl font-bold text-center mb-5">Market Your Property With Realty
         </h2>
         <p className='text-base text-center font-bold font-black/30'>
-            No obligation market appraisal for your property today. Our virtual options are
-still <br/> available if you prefer
+            No obligation market appraisal for your property today. Our virtual options are still <br/> available if you prefer
         </p>
 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center mt-10">
   <div className="flex flex-col items-center justify-center w-40 h-40 md:w-48 md:h-48 border-1 border-white rounded-full text-center">

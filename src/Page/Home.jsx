@@ -4,6 +4,7 @@ import Cards from '../Component/Cards';
 import UhyChose from '../Component/UhyChose';
 import ClientSay from '../Component/ClientSay';
 import MakepropertySec from '../Component/MakepropertySec';
+import PropertyAgent from '../Component/PropertyAgent';
 
 const Home = () => {
 
@@ -15,7 +16,8 @@ const Home = () => {
             <Cards></Cards>
             <UhyChose></UhyChose>
             <MakepropertySec></MakepropertySec>
-            <div className='container mx-auto md:py-10'>
+            <PropertyAgent></PropertyAgent>
+            <div className=' md:py-10 bg-[#F2F6F7]'>
                <ClientSay></ClientSay>  
             </div>
            
