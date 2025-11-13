@@ -11,6 +11,7 @@ import Regester from '../Page/Regester';
 import Privetrouter from '../Privetrouter/Privetrouter';
 import PropertyDetails from '../Page/PropertyDetails';
 import UpdateProperty from '../Page/UpdateProperty';
+import ErrorPage from '../Page/ErrorPage';
 
 
 export const router = createBrowserRouter([
@@ -67,9 +68,10 @@ export const router = createBrowserRouter([
         </Privetrouter>
 
       },
-      {
-        
-      }
+      { 
+     path: '*', 
+      element: <ErrorPage/> 
+    },
 
 
 
