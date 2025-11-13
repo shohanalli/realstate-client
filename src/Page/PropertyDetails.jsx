@@ -48,6 +48,7 @@ const PropertyDetails = () => {
       postedBy: user?.displayName,
       thumbnail: e.target.thumbnail.value,
       createdAt: new Date(),
+      email: user?.email
     };
 
     fetch("https://real-state-server-phi.vercel.app/review", {

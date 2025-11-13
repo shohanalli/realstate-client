@@ -10,7 +10,7 @@ const MyRatings = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setLoading(true);
-    fetch("https://real-state-server-phi.vercel.app/review")
+    fetch(`https://real-state-server-phi.vercel.app/review?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
