@@ -4,15 +4,26 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { getAuth } from "firebase/auth";
 // Your web app's Firebase configuration
+// const firebaseConfig = {
+//   apiKey: "AIzaSyAE_s2B9bbYZIs31nnZfpbu9H_mBG3bxAA",
+//   authDomain: "real-state-a5d74.firebaseapp.com",
+//   projectId: "real-state-a5d74",
+//   storageBucket: "real-state-a5d74.firebasestorage.app",
+//   messagingSenderId: "435304938598",
+//   appId: "1:435304938598:web:0fab7400f44209b4fe41a7"
+// };
+
 const firebaseConfig = {
-  apiKey: "AIzaSyAE_s2B9bbYZIs31nnZfpbu9H_mBG3bxAA",
-  authDomain: "real-state-a5d74.firebaseapp.com",
-  projectId: "real-state-a5d74",
-  storageBucket: "real-state-a5d74.firebasestorage.app",
-  messagingSenderId: "435304938598",
-  appId: "1:435304938598:web:0fab7400f44209b4fe41a7"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+
+

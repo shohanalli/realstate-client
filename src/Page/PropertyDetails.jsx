@@ -13,16 +13,16 @@ const PropertyDetails = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:3000/products/${id}`)
+    fetch(`https://real-state-server-phi.vercel.app/products/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        setProduct(data.result)
+        setProduct(data.result);
         setLoading(false);
       })
       .catch((err) => console.error(err));
   }, [id]);
 
-  if (loading) return <Loading />
+  if (loading) return <Loading />;
 
   const {
     thumbnail,
@@ -36,39 +36,36 @@ const PropertyDetails = () => {
     category,
     manIng,
     email,
-    _id
+    _id,
   } = product;
 
-const handelReview = (e) =>{
-    e.preventDefault()
-            const formData = {
-            Description : e.target.description.value,
-            propertyName : e.target.name.value,
-            rating : e.target.rating.value,
-            postedBy : user?.displayName,
-            thumbnail : e.target.thumbnail.value,
-            createdAt : new Date()
-        }
-  
-        fetch('http://localhost:3000/review',{
-            method: 'POST',
-            headers : {
-                'content-type' : 'application/json'
-            },
-            body: JSON.stringify(formData)
-        })
-        .then(res => res.json())
-        .then(data => {
-            toast.success("Add review successfully")
-            console.log(data)
-        })
-        .catch(err => {
-            console.log(err)
-        })
+  const handelReview = (e) => {
+    e.preventDefault();
+    const formData = {
+      Description: e.target.description.value,
+      propertyName: e.target.name.value,
+      rating: e.target.rating.value,
+      postedBy: user?.displayName,
+      thumbnail: e.target.thumbnail.value,
+      createdAt: new Date(),
+    };
 
-
-
-}
+    fetch("https://real-state-server-phi.vercel.app/review", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("Add review successfully");
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <>
@@ -147,8 +144,8 @@ const handelReview = (e) =>{
             <input
               type="text"
               name="name"
-            defaultValue={propertyName}
-          readOnly
+              defaultValue={propertyName}
+              readOnly
               className="input w-full rounded-xl focus:border-0 focus:outline-gray-200"
               placeholder="Enter name"
             />
@@ -172,8 +169,8 @@ const handelReview = (e) =>{
             <input
               type="url"
               name="thumbnail"
-        defaultValue={thumbnail}
-          readOnly
+              defaultValue={thumbnail}
+              readOnly
               className="input w-full rounded-xl focus:border-0 focus:outline-gray-200"
               placeholder="https://i.ibb.co/Ps29V996/card1.webp"
             />
@@ -184,8 +181,8 @@ const handelReview = (e) =>{
           <input
             type="text"
             name="userName"
-          defaultValue={user?.displayName}
-          readOnly
+            defaultValue={user?.displayName}
+            readOnly
             className="input w-full rounded-xl focus:border-0 focus:outline-gray-200"
           />
           {/*star Rating*/}
@@ -196,7 +193,9 @@ const handelReview = (e) =>{
             min={0}
             max={5}
             required
-            onInput={e => e.target.value = Math.min(Number(e.target.value), 5)}
+            onInput={(e) =>
+              (e.target.value = Math.min(Number(e.target.value), 5))
+            }
             className="input w-full rounded-xl focus:border-0 focus:outline-gray-200"
             placeholder="<=5"
           />

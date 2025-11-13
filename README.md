@@ -1,16 +1,28 @@
-# React + Vite
+# Project Name
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+MyRealEstateWebsite
 
-Currently, two official plugins are available:
+A modern, responsive real estate website with **React** and **Tailwind CSS**.  
+ property agents, and interactive UI components, login authentication, Add property , ect 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##  Live Site
 
-## React Compiler
+https://whimsical-pavlova-f79026.netlify.app/
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Responsive Design:** Works seamlessly on All device.  
+**Property Cards:** Display properties with consistent image heights and detailed info.  
+**Property Agents Section:** agents with profile images, names, roles,and social media.  
+**Floating Button:** A global button visible on all pages for theme color change.   **Smooth Hover Effects:** Cards and buttons have subtle shadows and transitions.  
+
+## using
+
+**Frontend:** React  
+**Styling:** Tailwind CSS  
+**Icons:** Lucide React / React Icons  
+**Routing:** React Router 
+**Databes:** Mongodb
+**ServerSide** Express
+
