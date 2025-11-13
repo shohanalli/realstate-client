@@ -2,17 +2,23 @@ import { Rating } from '@smastrom/react-rating';
 import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../Authorization/AuthContext';
 import "@smastrom/react-rating/style.css";
+import Loading from '../Component/Loading';
 
 const MyRatings = () => {
     const {user} = use(AuthContext)
     const [reviews, setReviews] = useState([]);
+    const [loading, setLoading] = useState(true);
   useEffect(() => {
+    setLoading(true)
     fetch("http://localhost:3000/review")
       .then((res) => res.json())
-      .then((data) => setReviews(data))
+      .then((data) =>{
+         setReviews(data)
+        setLoading(false)
+      })
       .catch((err) => console.error(err));
   }, []);
-
+if (loading) return <Loading />;
     return (
 <>
     <div className="bg-[#F5F7FB] py-16">
@@ -22,9 +28,9 @@ const MyRatings = () => {
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    {reviews.map((review, index)=>(
+    {reviews.map((review)=>(
 
-            <div key={index._id}
+            <div key={review._id}
               className="bg-white shadow-md rounded-2xl p-5 border border-black/30 hover:shadow-lg transition text-center"
             >
               <img
@@ -50,8 +56,8 @@ const MyRatings = () => {
                 />
               </div>
 
-              <p className="text-sm text-gray-700 mb-3 italic">
-                {review.Description}
+              <p className="text-sm text-gray-700 mb-3 italic">"
+                {review.Description} "
               </p>
 
               <p className="text-xs text-gray-400">

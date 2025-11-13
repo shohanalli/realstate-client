@@ -1,14 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import AllpropertyCard from '../Component/AllpropertyCard';
+import Loading from '../Component/Loading';
 
 const AllProperties = () => {
     const [products, setProducts] = useState([]);
-
+const [loading, setLoading] = useState(false);
 useEffect(() => {
+    setLoading(true);
   fetch('http://localhost:3000/products')
     .then(res => res.json())
-    .then(data => setProducts(data))
+    .then(data => {
+        setProducts(data)
+        setLoading(false);
+    })
 }, []);
+
+  if (loading) return <Loading/>;
+
     return (
         <div>
     <div className="container mx-auto px-4 py-15">

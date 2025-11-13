@@ -1,12 +1,13 @@
 
-import React, { use, useEffect} from 'react';
+import React, { use, useEffect, useState} from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../Authorization/AuthContext';
+import Loading from '../Component/Loading';
 
 const Login = () => {
-
-    const {signInWithEmailAndPasswordFunc,  signInWithGoogleFun, user, setUser, setLoading} = use(AuthContext)
+  const [loading, setLoading] = useState(false);
+    const {signInWithEmailAndPasswordFunc,  signInWithGoogleFun, user, setUser} = use(AuthContext)
     const location = useLocation()
     const form = location.state || '/'
     const navigate = useNavigate()
@@ -17,6 +18,7 @@ const Login = () => {
   }, [user, navigate, form]);
     const handelSignin = (e) =>{
         e.preventDefault()
+        setLoading(true);
         const email = e.target.email.value;
         const password = e.target.password.value;
         signInWithEmailAndPasswordFunc( email, password)
@@ -32,6 +34,7 @@ const Login = () => {
     }
 
 const handelContinueGoogle = () =>{
+  setLoading(true);
  signInWithGoogleFun()
         .then(res=>{
             setUser(res.user)
@@ -44,7 +47,7 @@ const handelContinueGoogle = () =>{
             toast.error(errr.message)
         })
 }
-
+if (loading) return <Loading />;
   return (
     <div className=" bg-[#F2F6F7] py-15 flex flex-col items-center justify-center">
         <div className='py-5 space-y-6 mb-5'>

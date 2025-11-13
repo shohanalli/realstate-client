@@ -1,15 +1,22 @@
-
+import Loading from './Loading';
 import { useEffect, useState } from 'react';
 import Card from './Card';
 
 const Cards = () => {
     const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
 
 useEffect(() => {
+  setLoading(true)
   fetch('http://localhost:3000/sortproducts')
     .then(res => res.json())
-    .then(data => setProducts(data))
+    .then(data => {
+      setProducts(data)
+      setLoading(false)
+    })
 }, []);
+
+if(loading) return <loading />
     return (
         <div>
  <div className="container mx-auto px-4 py-15">

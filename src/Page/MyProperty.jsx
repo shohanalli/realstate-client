@@ -3,19 +3,22 @@ import React, { use, useEffect, useState } from "react";
 import { Link } from "react-router";
 import { AuthContext } from "../Authorization/AuthContext";
 import Swal from "sweetalert2";
+import Loading from "../Component/Loading";
 
 const MyProperty = () => {
   const { user } = use(AuthContext);
   console.log(user)
   const [products, setProducts] = useState([]);
-  const [loading, setloading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+  if (!user) return;
+  setLoading(true);
     fetch(`http://localhost:3000/my-products?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
-        setloading(false);
+        setLoading(false);
       });
   }, []);
 
@@ -58,7 +61,7 @@ const handelDelete =(id)=>{
 }
 
 
-  if (loading) return <p>loading.....</p>;
+  if (loading) return <Loading />
 
   return (
     <div className="bg-[#F5F7FB]">

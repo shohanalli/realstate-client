@@ -3,6 +3,7 @@ import { AuthContext } from './AuthContext';
 import { auth } from '../firebase/Firebase.config';
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import { Circles } from 'react-loader-spinner';
+import Loading from '../Component/Loading';
 
 
 const AuthProvider = ({children}) => {
@@ -59,9 +60,12 @@ unsubscribe();
 },[])
 
 
+ return (
+   <AuthContext value={authInfo}>
+    {loading ? <Loading /> : children}
+   </AuthContext>
+ )
 
-
-    return <AuthContext value={authInfo}>{children}</AuthContext>
 };
 
 export default AuthProvider;

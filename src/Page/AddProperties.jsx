@@ -1,12 +1,14 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import { AuthContext } from '../Authorization/AuthContext';
 import { toast } from 'react-toastify';
+import Loading from '../Component/Loading';
 
 const AddProperties = () => {
     const {user} = use(AuthContext)
+    const [loading, setLoading] = useState(false);
     const handelSubmit = (e) =>{
         e.preventDefault()
-
+        setLoading(true);
         const formData = {
             price : e.target.price.value,
             location : e.target.location.value,
@@ -30,6 +32,7 @@ const AddProperties = () => {
         .then(data => {
             toast.success("Add product mongodb successfully")
             console.log(data)
+            setLoading(false);
         })
         .catch(err => {
             console.log(err)
@@ -138,13 +141,18 @@ const AddProperties = () => {
           className="input w-full rounded-xl focus:border-0 focus:outline-gray-200"
         />
           {/* Submit Button */}
+          {
+            loading?(
+              <Loading />
+            ):(
           <button
             type="submit"
-            
             className="btn w-full text-white mt-6 rounded-xl bg-linear-to-r from-[#FF5A3C]/70 to-[#FF5A3C]"
-          >
-            Add Property
+          >Add Property
           </button>
+            )
+          }
+
         </form>
       </div>
     </div>

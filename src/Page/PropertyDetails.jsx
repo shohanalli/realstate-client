@@ -4,19 +4,25 @@ import { useParams } from "react-router";
 import { AuthContext } from "../Authorization/AuthContext";
 import Rating from "react-rating";
 import { toast } from "react-toastify";
+import Loading from "../Component/Loading";
 
 const PropertyDetails = () => {
   const { user } = use(AuthContext);
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
+    setLoading(true);
     fetch(`http://localhost:3000/products/${id}`)
       .then((res) => res.json())
-      .then((data) => setProduct(data.result))
+      .then((data) => {
+        setProduct(data.result)
+        setLoading(false);
+      })
       .catch((err) => console.error(err));
   }, [id]);
 
-  if (!product) return <p>loading....</p>;
+  if (loading) return <Loading />
 
   const {
     thumbnail,
@@ -63,9 +69,6 @@ const handelReview = (e) =>{
 
 
 }
-
-
-
 
   return (
     <>

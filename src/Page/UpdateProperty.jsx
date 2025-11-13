@@ -2,15 +2,21 @@ import React, { use, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { AuthContext } from '../Authorization/AuthContext';
 import { toast } from 'react-toastify';
+import Loading from '../Component/Loading';
 
 const UpdateProperty = () => {
 const {user} = use(AuthContext);
 const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
+    setLoading(true)
     fetch(`http://localhost:3000/products/${id}`)
       .then(res => res.json())
-      .then(data => setProduct(data.result))
+      .then(data =>{
+         setProduct(data.result)
+        setLoading(false)
+        })
       .catch(err => console.error(err));
   }, [id]);
   console.log(product)
@@ -43,7 +49,7 @@ const { id } = useParams();
     }
 
 
-  if (!product) return <p>loading....</p>;
+  if (loading) return <Loading />;
     return (
         <div>
         <div className="card border border-gray-200 bg-base-100 w-full max-w-xl mx-auto shadow-2xl my-8 rounded-2xl">

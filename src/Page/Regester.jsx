@@ -5,13 +5,14 @@ import { toast } from "react-toastify";
 import { Eye, EyeOff } from "lucide-react";
 import { AuthContext } from "../Authorization/AuthContext";
 import { auth } from "../firebase/Firebase.config";
+import Loading from "../Component/Loading";
 const Regester = () => {
   const [show, setShow] = useState(false);
+  const [loading, setLoading] = useState(false);
   const {
     createUserWithEmailPasswordFunc,
     user,
     signInWithGoogleFun,
-    setLoading,
     updateProfileFunc,
   } = useContext(AuthContext);
   const location = useLocation();
@@ -24,6 +25,7 @@ const Regester = () => {
   }, [user, navigate, form]);
   const handelSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
     const displayName = e.target.name?.value;
     const photoURL = e.target.photo?.value;
     const email = e.target.email?.value;
@@ -58,6 +60,7 @@ const Regester = () => {
   };
 
   const handelContinueGoogle = () => {
+    setLoading(true);
     signInWithGoogleFun()
       .then((res) => {
         setLoading(false);
@@ -70,6 +73,8 @@ const Regester = () => {
   };
 
   return (
+    <>
+    {loading && <Loading />}
     <div className=" bg-[#F2F6F7] py-15 flex flex-col items-center justify-center">
       <div className="py-5 space-y-6 mb-5">
         <h1 className="text-3xl md:text-5xl text-[var(--color-text)] font-extrabold text-center leading-snug">
@@ -163,6 +168,7 @@ const Regester = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

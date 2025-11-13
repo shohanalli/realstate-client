@@ -33,7 +33,7 @@ console.log(user)
   
     return (
         <div className=' bg-base-100 shadow-sm py-2'>
-            <div className="navbar w-[97] lg:w-[95%] mx-auto">
+            <div className="navbar w-[97%] lg:w-[95%] mx-auto">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
