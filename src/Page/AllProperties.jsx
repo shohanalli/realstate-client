@@ -24,8 +24,8 @@ const AllProperties = () => {
           <h1 className="text-[var(--color-text)] text-4xl font-bold mb-2">
             All Properties
           </h1>
-          <p className="text-base font-semibold text-black/60 mb-2">
-            Thousands of luxury home enthusiasts just like you <br />
+          <p className="text-base font-medium md:font-semibold border-base-content/60 mb-2">
+            Thousands of luxury home enthusiasts just like you
             visit our website.
           </p>
         </div>

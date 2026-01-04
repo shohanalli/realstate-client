@@ -63,10 +63,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/details/:id',
-        element: <Privetrouter>
-                   <PropertyDetails></PropertyDetails>
-        </Privetrouter>
-
+        element: <PropertyDetails></PropertyDetails>
       },
       { 
      path: '*', 

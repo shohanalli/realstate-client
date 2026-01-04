@@ -8,11 +8,11 @@ const ClientSay = () => {
   return (
     <>
       <div className="container mx-auto">
-        <div className="text-center py-10">
-          <h1 className="text-2xl lg:text-4xl font-semibold text-[var(--color-text)]">
+        <div className="text-center py-10 w-11/12 mx-auto">
+          <h1 className="text-2xl lg:text-4xl font-semibold text-base-content">
             What Our Clients Say?
           </h1>
-          <p className="text-base font-bold text-black/40">
+          <p className="text-base font-bold text-base-content/40 mt-5">
             Here’s just a few reasons why homeowners are choosing Realty to sell
             their property.
           </p>
@@ -21,7 +21,14 @@ const ClientSay = () => {
         <Swiper
           modules={[Pagination]}
           spaceBetween={20}
-          slidesPerView={2}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+            },
+            640: {
+              slidesPerView: 2,
+            }
+          }}
           loop={true}
           autoplay={{
             delay: 3000,
@@ -33,7 +40,7 @@ const ClientSay = () => {
           className="mySwiper"
         >
           <SwiperSlide>
-            <div className="mx-3 my-10 relative overflow-hidden border border-black/30 rounded-2xl shadow-xl bg-white bg-cover bg-center flex flex-col items-center justify-center p-5">
+            <div className="mx-3 my-10 relative overflow-hidden border border-base-content/30 rounded-2xl shadow-xl bg-cover bg-center flex flex-col items-center justify-center p-5">
               <div>
                 <img
                   className="rounded-full border-2 border-[#FF5A3C] h-20 w-20"
@@ -42,7 +49,7 @@ const ClientSay = () => {
                 />
               </div>
               <div>
-                <p className="text-center mt-2 text-sm md:text-base font-bold text-black/60">
+                <p className="text-center mt-2 text-sm md:text-base font-bold text-base/60">
                   working tirelessly at the Boston General Hospital, is
                   developing a new cancer treatment prototype
                 </p>
@@ -55,7 +62,7 @@ const ClientSay = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="mx-3 my-10 relative overflow-hidden border border-black/30 rounded-2xl shadow-xl bg-cover bg-center flex flex-col items-center justify-center p-5">
+            <div className="mx-3 my-10 relative overflow-hidden border border-base-content/20 rounded-2xl shadow-xl bg-cover bg-center flex flex-col items-center justify-center p-5">
               <div>
                 <img
                   className="rounded-full border-2 border-[#FF5A3C] h-20 w-20"
@@ -64,7 +71,7 @@ const ClientSay = () => {
                 />
               </div>
               <div>
-                <p className="text-center mt-2 text-sm md:text-base font-bold text-black/60">
+                <p className="text-center mt-2 text-sm md:text-base font-bold text-base/60">
                   an aspiring architect, recently won a prestigious award for
                   her sustainable design proposal.
                 </p>
@@ -77,7 +84,7 @@ const ClientSay = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="mx-3 my-10 relative overflow-hidden border border-black/30 rounded-2xl shadow-xl bg-cover bg-center flex flex-col items-center justify-center p-5">
+            <div className="mx-3 my-10 relative overflow-hidden border border-base-content/20 rounded-2xl shadow-xl bg-cover bg-center flex flex-col items-center justify-center p-5">
               <div>
                 <img
                   className="rounded-full border-2 border-[#FF5A3C] h-20 w-20"
@@ -86,7 +93,7 @@ const ClientSay = () => {
                 />
               </div>
               <div>
-                <p className="text-center mt-2 text-sm md:text-base font-bold text-black/60">
+                <p className="text-center mt-2 text-sm md:text-base font-bold text-base/60">
                   the renowned chef, is opening a new molecular gastronomy
                   restaurant next month.
                 </p>

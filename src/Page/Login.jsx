@@ -49,13 +49,13 @@ const Login = () => {
   };
   if (loading) return <Loading />;
   return (
-    <div className=" bg-[#F2F6F7] py-15 flex flex-col items-center justify-center">
+    <div className=" bg-base-200 py-15 flex flex-col items-center justify-center">
       <div className="py-5 space-y-6 mb-5">
         <h1 className="text-3xl md:text-5xl text-[var(--color-text)] font-extrabold text-center leading-snug">
           Sign In <br />
           To Your Account
         </h1>
-        <p className="text-center text-black/50">
+        <p className="text-center text-base-content/50">
           Access your personalized dashboard securely by signing <br /> in to
           your account today.
         </p>
@@ -64,7 +64,7 @@ const Login = () => {
         <div className=" border border-white/30 shadow-xl rounded-2xl p-8">
           <form onSubmit={handelSignin} className="space-y-5 ">
             <div>
-              <label className="block text-base mb-1 text-black/50">
+              <label className="block text-base mb-1 text-base-content/50">
                 Email
               </label>
               <input
@@ -75,7 +75,7 @@ const Login = () => {
               />
             </div>
             <div className="relative">
-              <label className="block text-base mb-1 text-black/50">
+              <label className="block text-base mb-1 text-base-content/50">
                 Password
               </label>
               <input
@@ -93,7 +93,7 @@ const Login = () => {
             </button>{" "}
             <br />
             <button
-              className="hover:underline cursor-pointer text-black"
+              className="hover:underline cursor-pointer text-base-content"
               type="button"
             >
               Forget password?
@@ -118,10 +118,10 @@ const Login = () => {
           </form>
         </div>
         <div className="mt-10 md:mt-0">
-          <h1 className="mb-8 text-2xl font-bold text-gray-800">
+          <h1 className="mb-8 text-xl md:text-2xl font-bold text-base-800">
             DON'T HAVE AN ACCOUNT?
           </h1>
-          <Link to="/regestar" className=" my-button py-5 px-10">
+          <Link to="/regestar" className=" my-button py-5 px-15">
             Sign up
           </Link>
         </div>

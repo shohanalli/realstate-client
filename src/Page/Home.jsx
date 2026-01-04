@@ -14,7 +14,7 @@ const Home = () => {
       <UhyChose></UhyChose>
       <MakepropertySec></MakepropertySec>
       <PropertyAgent></PropertyAgent>
-      <div className=" md:py-10 bg-[#F2F6F7]">
+      <div className=" md:py-10 bg-base-200">
         <ClientSay></ClientSay>
       </div>
     </div>

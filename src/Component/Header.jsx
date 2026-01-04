@@ -3,6 +3,7 @@ import React, { use, useState } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../Authorization/AuthContext";
 import { Circles } from "react-loader-spinner";
+import DarkLight from "./DarkLight";
 
 const Header = () => {
   const { user, setUser, signoutUserFun, loading } = use(AuthContext);
@@ -45,14 +46,14 @@ const Header = () => {
   );
 
   return (
-    <div className=" bg-base-100 shadow-sm py-2">
+    <div className=" bg-base-100 shadow-sm py-1">
       <div className="navbar w-[97%] lg:w-[95%] mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-10 w-10"
+                className="h-5 w-5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -67,7 +68,7 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-white text-sm font-semibold space-y-5  rounded-box w-52 text-black/70"
+              className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 text-sm font-semibold space-y-5  rounded-box w-52 border-base-content/70"
             >
               {navLinks}
             </ul>
@@ -78,7 +79,7 @@ const Header = () => {
             </a>
             <a
               href="./"
-              className="text-3xl font-extrabold text-[var(--color-text)]"
+              className="text-lg md:text-3xl font-extrabold text-[var(--color-text)]"
             >
               {" "}
               RENTER
@@ -90,12 +91,13 @@ const Header = () => {
             {navLinks}
           </ul>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end flex gap-1">
+          <DarkLight /> 
           {loading ? (
             <Circles height="50" width="50" color="#FF5A3C" />
           ) : !user ? (
             <Link to={"/login"} className="btn  my-button">
-              SingUp/LogIn
+              LogIn
             </Link>
           ) : (
             <div
@@ -129,6 +131,7 @@ const Header = () => {
               )}
             </div>
           )}
+          
         </div>
       </div>
     </div>

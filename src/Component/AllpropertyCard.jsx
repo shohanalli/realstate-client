@@ -7,7 +7,7 @@ const AllpropertyCard = ({ product }) => {
     product;
   return (
     <div>
-      <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-800 relative cursor-pointer w-full sm:w-[300px] md:w-[350px] lg:w-[400px] h-[480px]">
+      <div className="bg-base-200 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-800 relative cursor-pointer w-full sm:w-[300px] md:w-[350px] lg:w-[400px] h-[480px]">
         <div className="relative h-60 w-full overflow-hidden rounded-lg">
           <img
             src={thumbnail}
@@ -24,11 +24,11 @@ const AllpropertyCard = ({ product }) => {
             </button>
           </div>
           {/* property name */}
-          <h2 className="text-[var(--color-text)]/90 text-[18px] lg:text-xl font-semibold pb-4 ">
+          <h2 className="text-base/relaxed text-[18px] lg:text-xl font-semibold pb-4 ">
             {propertyName}
           </h2>
           {/* location */}
-          <div className=" flex items-center gap-1 text-black/50">
+          <div className=" flex items-center gap-1 text-base-content/50">
             <MapPin size={20} />
             <p className="text-sm font-bold ">{location}</p>
           </div>
@@ -44,7 +44,7 @@ const AllpropertyCard = ({ product }) => {
               View Details
             </Link>
           </div>
-          <h3 className="text-sm font-semibold text-[var(--color-text)]/60">
+          <h3 className="text-sm font-semibold text-base/relaxed">
             Posted by, {postedBy}{" "}
           </h3>
         </div>

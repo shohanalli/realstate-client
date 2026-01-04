@@ -71,15 +71,23 @@ const PropertyDetails = () => {
   return (
     <>
       <div className="py-15 w-11/12 md:max-w-9/12 mx-auto">
-        <div className="flex justify-between">
-          <div className="space-y-1">
-            <h1 className="text-2xl font-bold text-[var(--color-text)]">
-              {propertyName}
-              <span className="font-normal text-sm text-white bg-[var(--primary-color)] py-1 px-3 rounded-2xl">
-                {category}
-              </span>
-            </h1>
-            <p className="text-sm font-bold text-black/40">{location}</p>
+        <div className="flex flex-col md:flex-row justify-between">
+          <div className="space-y-1 ">
+            
+
+<h1 className="text-2xl font-bold text-base-content flex flex-col md:flex-row md:items-center md:gap-3">
+  {/* Property Name */}
+  <span>
+    {propertyName}
+  </span>
+
+  {/* Category */}
+  <span className="mt-2 md:mt-0 font-normal text-sm text-white bg-[var(--primary-color)]/90 py-1 px-3 rounded-2xl w-fit">
+    {category}
+  </span>
+</h1>
+
+            <p className="text-sm font-bold text-base-content/40">{location}</p>
           </div>
           <div>
             <p className="text-[var(--primary-color)]/80 font-bold text-3xl">
@@ -96,45 +104,47 @@ const PropertyDetails = () => {
           />
         </div>
       </div>
-      {/* discription and me */}
-      <div className="bg-[#F7F7F7] py-15 ">
+      {/* description and me */}
+      <div className="bg-base-200 py-15 ">
         <div className="w-11/12  md:flex items-center gap-5 md:max-w-9/12 mx-auto">
-          <div className="md:w-2/3 border mb-5 bg-white shadow-md p-5 rounded-2xl border-black/30">
-            <h1 className="font-bold text-3xl text-black/80 py-4 ">Overview</h1>
-            <p className="leading-relaxed text-black/60 text-sm pb-8">
+          <div className="md:w-2/3 border mb-5 bg-base-200 shadow-md p-5 rounded-2xl border-black/30">
+            <h1 className="font-bold text-3xl text-base-content/80 py-4 ">Overview</h1>
+            <p className="leading-relaxed text-base-content/60 text-sm pb-8">
               {shortDescription}
             </p>
-            <p className="leading-relaxed text-black/60 text-sm pb-8">
+            <p className="leading-relaxed text-base-content/60 text-sm pb-8">
               {mediumDescription}
             </p>
-            <p className="leading-relaxed text-black/60 text-sm pb-8">
+            <p className="leading-relaxed text-base-content/60 text-sm pb-8">
               {longDescription}
             </p>
           </div>
 
-          <div className="md:w-1/3  border bg-white shadow-md border border-black/30 rounded-md py-10  flex md:flex-col gap-10 justify-center items-center">
-            <img
-              className="h-25 w-25 ml-2 rounded-full"
-              src={manIng || user.photoURL}
-              alt=""
-            />
-            <div>
-              <div className="md:flex flex-col justify-center items-center">
-                <h2 className=" text-xl   font-bold">{postedBy}</h2>
-                <span className="flex items-center gap-1">
-                  <Mail size={16} />
-                  <p className="text-md md:text-sm lg:text-md font-normal">
-                    {email}
-                  </p>
-                </span>
-              </div>
-            </div>
-          </div>
+<div className="md:w-1/3 w-full bg-base-200 shadow-md border border-black/30 rounded-md py-10 flex flex-col md:flex-col items-center gap-6">
+  {/* Image */}
+  <img
+    className="h-24 w-24 rounded-full object-cover"
+    src={manIng || user?.photoURL}
+    alt={postedBy}
+  />
+
+  {/* Text */}
+  <div className="flex flex-col items-center text-center md:text-center gap-2 w-full px-4">
+    <h2 className="text-xl font-bold truncate max-w-full">{postedBy}</h2>
+
+    <div className="flex items-center gap-2 w-full justify-center">
+      <Mail size={16} />
+      <p className="text-md md:text-sm lg:text-md font-normal truncate max-w-[180px] md:max-w-full">
+        {email}
+      </p>
+    </div>
+  </div>
+</div>
+
         </div>
       </div>
-
       {/* product review from */}
-      <div className="card-body p-6 relative w-10/12 md:w-6/12 mx-auto">
+      <div className="card-body p-6 relative w-11/12 md:w-6/12 mx-auto">
         <h2 className="text-2xl font-bold text-center text-[var(--color-text)] mb-3">
           Send review This Product
         </h2>

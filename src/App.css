@@ -8,7 +8,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend&display=swap');
 :root{
   --primary-color: #FF5A3C;
-  --color-text: #071C1F;
+  --color-text: text-base-content;
 }
 * {
   font-family: "Lexend", sans-serif;
