@@ -12,6 +12,9 @@ import Privetrouter from '../Privetrouter/Privetrouter';
 import PropertyDetails from '../Page/PropertyDetails';
 import UpdateProperty from '../Page/UpdateProperty';
 import ErrorPage from '../Page/ErrorPage';
+import Faq from '../Page/Faq';
+import TermsAndCondition from '../Page/TermsAndCondition';
+import PrivecyPolicy from '../Page/PrivecyPolicy';
 
 
 export const router = createBrowserRouter([
@@ -27,43 +30,55 @@ export const router = createBrowserRouter([
       {
         path: '/add-property',
         element: <Privetrouter>
-         <AddProperties></AddProperties>
+         <AddProperties />
         </Privetrouter>
       },
       {
         path: '/update-property/:id',
         element: <Privetrouter>
-          <UpdateProperty></UpdateProperty>
+          <UpdateProperty />
         </Privetrouter>
       },
       {
         path: '/all-property',
-        element: <AllProperties></AllProperties>
+        element: <AllProperties />
         
       },
       {
         path: '/my-property',
         element: <Privetrouter>
-         <MyProperty></MyProperty>
+         <MyProperty />
         </Privetrouter>
       },
       {
         path: '/my-rating',
         element : <Privetrouter>
-         <MyRatings></MyRatings>
+         <MyRatings />
         </Privetrouter>
       },
       {
         path:'/login',
-        element: <Login></Login>
+        element: <Login />
       },
       {
         path: '/regestar',
-        element: <Regester></Regester>
+        element: <Regester />
       },
       {
         path: '/details/:id',
-        element: <PropertyDetails></PropertyDetails>
+        element: <PropertyDetails />
+      },
+      {
+        path: '/faq',
+        element: <Faq />
+      },
+      {
+        path: '/terms-condition',
+        element: <TermsAndCondition />
+      },
+      {
+        path: '/privacy-policy',
+        element: <PrivecyPolicy />
       },
       { 
      path: '*', 
@@ -74,7 +89,4 @@ export const router = createBrowserRouter([
 
     ]
   },
-
-
-
 ]);

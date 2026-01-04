@@ -112,28 +112,18 @@ const Footer = () => {
           </h3>
           <ul className="space-y-5 text-base">
             <li>
-              <a href="#" className="footer-hover">
-                Help Center
-              </a>
-            </li>
-            <li>
-              <a href="#" className="footer-hover">
+              <a href={"/faq"} className="footer-hover">
                 FAQs
               </a>
             </li>
             <li>
-              <a href="#" className="footer-hover">
+              <a href={"terms-condition"} className="footer-hover">
                 Terms & Conditions
               </a>
             </li>
             <li>
-              <a href="#" className="footer-hover">
+              <a href={"privacy-policy"} className="footer-hover">
                 Privacy Policy
-              </a>
-            </li>
-            <li>
-              <a href="#" className="footer-hover">
-                Report a Problem
               </a>
             </li>
           </ul>
