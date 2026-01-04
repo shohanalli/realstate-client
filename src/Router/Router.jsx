@@ -18,6 +18,9 @@ import PrivecyPolicy from '../Page/PrivecyPolicy';
 import AboutUs from '../Page/AboutUs';
 import Blog from '../Page/Blog';
 import Contact from '../Page/Contact';
+import PropertyBuying from '../Page/PropertyBuying';
+import PropertySelling from '../Page/PropertySelling';
+import RentManagement from '../Page/RentManagement';
 
 
 export const router = createBrowserRouter([
@@ -94,6 +97,18 @@ export const router = createBrowserRouter([
       {
         path: '/contact',
         element: <Contact />
+      },
+      {
+        path: '/property-buying',
+        element: <PropertyBuying />
+      },
+      {
+        path: '/property-selling',
+        element: <PropertySelling />
+      },
+      {
+        path: '/rent-management',
+        element: <RentManagement />
       },
       { 
      path: '*', 

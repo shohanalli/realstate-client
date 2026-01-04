@@ -27,6 +27,12 @@ const Header = () => {
       <NavLink className={"navLInk"} to={"/all-property"}>
         All Properties
       </NavLink>
+      <NavLink className={"navLInk"} to={"/blog"}>
+        Blog
+      </NavLink>
+      <NavLink className={"navLInk"} to={"/contact"}>
+        Contact
+      </NavLink>
       {user && (
         <NavLink className={"navLInk"} to={"/add-property"}>
           Add Properties

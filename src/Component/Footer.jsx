@@ -69,28 +69,18 @@ const Footer = () => {
           <h3 className="text-2xl font-semibold text-white mb-8">Services</h3>
           <ul className="space-y-5 text-base">
             <li>
-              <a href="#" className="footer-hover">
+              <a href={"/property-buying"} className="footer-hover">
                 Property Buying
               </a>
             </li>
             <li>
-              <a href="#" className="footer-hover">
+              <a href={"property-selling"} className="footer-hover">
                 Property Selling
               </a>
             </li>
             <li>
-              <a href="#" className="footer-hover">
+              <a href={"rent-management"} className="footer-hover">
                 Rent Management
-              </a>
-            </li>
-            <li>
-              <a href="#" className="footer-hover">
-                Property Listing
-              </a>
-            </li>
-            <li>
-              <a href="#" className="footer-hover">
-                Legal Assistance
               </a>
             </li>
           </ul>
