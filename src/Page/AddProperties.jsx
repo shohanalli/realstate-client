@@ -40,7 +40,7 @@ const AddProperties = () => {
   };
 
   return (
-    <div className="card border border-gray-200 bg-base-100 w-full max-w-xl mx-auto shadow-2xl my-8 rounded-2xl">
+    <div className="card border border-gray-200 bg-base-100 w-11/12 max-w-xl mx-auto shadow-2xl my-8 rounded-2xl">
       <div className="card-body p-6 relative">
         <h2 className="text-2xl font-bold text-center text-[var(--color-text)] mb-3">
           Add Property

@@ -62,9 +62,9 @@ const MyProperty = () => {
   if (loading) return <Loading />;
 
   return (
-    <div className="bg-[#F5F7FB]">
+    <div className="bg-base-200">
       <div className="py-15 w-11/12 md:max-w-9/12 mx-auto">
-        <h1 className="text-[var(--color-text)] text-4xl font-bold mb-2 text-center">
+        <h1 className="text-base-content text-4xl font-bold mb-2 text-center">
           My Property
         </h1>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 py-8">
@@ -80,25 +80,25 @@ const MyProperty = () => {
                     alt=""
                   />
                   <div className="absolute top-1 left-1">
-                    <button className="bg-[var(--primary-color)]/90 text-white py-1 px-4 rounded-2xl text-sm font-semibold">
+                    <button className="bg-[var(--primary-color)]/90 text-base-content py-1 px-4 rounded-2xl text-sm font-semibold">
                       {product.category}
                     </button>
                   </div>
                 </div>
                 {/* flex 2 */}
-                <div className="bg-white py-2 flex-1 pl-5 rounded-r-sm rounded-b-sm">
+                <div className="bg-base-100 py-2 flex-1 pl-5 rounded-r-sm rounded-b-sm">
                   {/* property name */}
                   <h2 className="text-[var(--color-text)]/90 text-xl lg:text-2xl font-semibold pb-2 ">
                     {product.propertyName}
                   </h2>
                   {/* location */}
-                  <div className=" flex items-center gap-1 text-black/50">
+                  <div className=" flex items-center gap-1 text-base-content/50">
                     <MapPin size={20} />
                     <p className="text-sm font-bold ">{product.location}</p>
                   </div>
                   {/* price and post date */}
                   <div className="  flex justify-between py-3 items-center">
-                    <div className=" flex items-center gap-1 text-black/50">
+                    <div className=" flex items-center gap-1 text-base-content/50">
                       <CalendarDays size={16} />
                       <p className="text-sm font-bold ">{product.createdAt}</p>
                     </div>

@@ -21,7 +21,7 @@ const MyRatings = () => {
   if (loading) return <Loading />;
   return (
     <>
-      <div className="bg-[#F5F7FB] py-16">
+      <div className="bg-base-200 py-16">
         <div className="w-11/12 md:max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-[var(--color-text)] mb-10">
             Customer Reviews
@@ -31,7 +31,7 @@ const MyRatings = () => {
             {reviews.map((review) => (
               <div
                 key={review._id}
-                className="bg-white shadow-md rounded-2xl p-5 border border-black/30 hover:shadow-lg transition text-center"
+                className="bg-base shadow-md rounded-2xl p-5 border border-black/30 hover:shadow-lg transition text-center"
               >
                 <img
                   src={review.thumbnail}
@@ -43,7 +43,7 @@ const MyRatings = () => {
                 </h3>
 
                 <p className="text-sm text-gray-500 mb-2">
-                  <span className="font-medium text-black">
+                  <span className="font-medium ">
                     {user.displayName}
                   </span>
                 </p>
@@ -55,7 +55,7 @@ const MyRatings = () => {
                   />
                 </div>
 
-                <p className="text-sm text-gray-700 mb-3 italic">
+                <p className="text-sm text-base-content/80 mb-3 italic">
                   "{review.Description} "
                 </p>
 
