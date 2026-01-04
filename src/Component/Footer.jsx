@@ -48,27 +48,17 @@ const Footer = () => {
           <h3 className="text-2xl font-semibold text-white mb-8">Company</h3>
           <ul className="space-y-5 text-base">
             <li>
-              <a href="#" className="footer-hover">
+              <a href={"/about"} className="footer-hover">
                 About Us
               </a>
             </li>
             <li>
-              <a href="#" className="footer-hover">
-                Careers
-              </a>
-            </li>
-            <li>
-              <a href="#" className="footer-hover">
+              <a href={"/blog"} className="footer-hover">
                 Blog
               </a>
             </li>
             <li>
-              <a href="#" className="footer-hover">
-                Press
-              </a>
-            </li>
-            <li>
-              <a href="#" className="footer-hover">
+              <a href={"contact"} className="footer-hover">
                 Contact
               </a>
             </li>

@@ -15,6 +15,9 @@ import ErrorPage from '../Page/ErrorPage';
 import Faq from '../Page/Faq';
 import TermsAndCondition from '../Page/TermsAndCondition';
 import PrivecyPolicy from '../Page/PrivecyPolicy';
+import AboutUs from '../Page/AboutUs';
+import Blog from '../Page/Blog';
+import Contact from '../Page/Contact';
 
 
 export const router = createBrowserRouter([
@@ -79,6 +82,18 @@ export const router = createBrowserRouter([
       {
         path: '/privacy-policy',
         element: <PrivecyPolicy />
+      },
+      {
+        path: '/about',
+        element: <AboutUs />
+      },
+      {
+        path: '/blog',
+        element: <Blog />
+      },
+      {
+        path: '/contact',
+        element: <Contact />
       },
       { 
      path: '*', 
