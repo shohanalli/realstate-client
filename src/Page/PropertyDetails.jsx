@@ -70,7 +70,40 @@ const PropertyDetails = () => {
 
   return (
     <>
+      <div className="py-15 w-11/12 md:max-w-9/12 mx-auto">
+        <div className="flex flex-col md:flex-row justify-between">
+          <div className="space-y-1 ">
+            
 
+<h1 className="text-2xl font-bold text-base-content flex flex-col md:flex-row md:items-center md:gap-3">
+  {/* Property Name */}
+  <span>
+    {propertyName}
+  </span>
+
+  {/* Category */}
+  <span className="mt-2 md:mt-0 font-normal text-sm text-white bg-[var(--primary-color)]/90 py-1 px-3 rounded-2xl w-fit">
+    {category}
+  </span>
+</h1>
+
+            <p className="text-sm font-bold text-base-content/40">{location}</p>
+          </div>
+          <div>
+            <p className="text-[var(--primary-color)]/80 font-bold text-3xl">
+              {price}
+            </p>
+          </div>
+        </div>
+        {/* image */}
+        <div className="pt-8 w-10/12 mx-auto md:w-9/12">
+          <img
+            className="w-full h-auto object-cover rounded-lg"
+            src={thumbnail}
+            alt="Property"
+          />
+        </div>
+      </div>
       {/* description and me */}
       <div className="bg-base-200 py-15 ">
         <div className="w-11/12  md:flex items-center gap-5 md:max-w-9/12 mx-auto">
